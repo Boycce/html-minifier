@@ -7,10 +7,10 @@
       output;
 
   test('parsing non-trivial markup', function() {
-    equal(minify('<div onc=""></div>', {
+    equal(minify('<div onclick></div>', {
       customAttrOpen: /\{\%[^\}]+\%\}/, 
       customAttrClose: /\{\%[^\}]+\%\}/
-    }), '<div onc></div>');
+    }), '<div onclick></div>');
     equal(minify('<p title="</p>">x</p>'), '<p title="</p>">x</p>');
     equal(minify('<p title=" <!-- hello world --> ">x</p>'), '<p title=" <!-- hello world --> ">x</p>');
     equal(minify('<p title=" <![CDATA[ \n\n foobar baz ]]> ">x</p>'), '<p title=" <![CDATA[ \n\n foobar baz ]]> ">x</p>');
